@@ -14,7 +14,12 @@ export const findAvailablePort = (desiredPort: number | string) => {
     })
 
     // no olvidar que node siempre escucha los eventos
-    // La expresión server.listen(0) en Node.js hace que el servidor escuche en un puerto disponible de forma automática. Cuando se pasa 0 como argumento para listen(), Node.js seleccionará automáticamente un puerto disponible y asignará ese puerto al servidor.
+    /**
+     * La expresión server.listen(0) en Node.js hace que el servidor escuche
+     * en un puerto disponible de forma automática. Cuando se pasa 0 como
+     * argumento para listen(), Node.js seleccionará automáticamente un
+     * puerto disponible y asignará ese puerto al servidor.
+     */
     server.on('error', (err: NodeJS.ErrnoException) => {
       // tbm se puede usar err: Any
       if (err.code === 'EADDRINUSE') {
